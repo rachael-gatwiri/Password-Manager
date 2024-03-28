@@ -50,11 +50,15 @@ def view():
                     name, password = data.split("|")
                     print("Account Name: ", name, ", Password:", fer.decrypt(password.encode()).decode())
 
+master_pwd_exists = False 
+
 while True:
     key = load_key()
     try:
-        with open("master_pwd.txt", "r"):
-            master_pwd_exists = True
+        with open("master_pwd.txt", "r") as f:
+            lines = f.readlines()
+            if lines:
+                master_pwd_exists = True
     except FileNotFoundError:
         master_pwd_exists = False
 
