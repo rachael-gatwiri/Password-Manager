@@ -1,5 +1,6 @@
 from cryptography.fernet import Fernet 
 
+#Uncomment the following code to generate key the comment again after the key has been generated
 
 # def write_key():
 #     key = Fernet.generate_key()
@@ -48,7 +49,7 @@ def view():
                 for line in lines:
                     data = line.rstrip()
                     name, password = data.split("|")
-                    print("Account Name: ", name, ", Password:", fer.decrypt(password.encode()).decode())
+                    print("Account Name:" + name + ", Password:", fer.decrypt(password.encode()).decode())
 
 master_pwd_exists = False 
 
